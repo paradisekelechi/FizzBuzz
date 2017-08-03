@@ -1,18 +1,51 @@
 'use strict';
-const startNumber = 0;
-const lastNumber = 100;
-for (let i = startNumber; i < lastNumber; i++) {
-    if(i%3 == 0 || i%5 == 0){
-        if(i%3 == 0 && i%5 == 0){
-            console.log('FizzBuzz');
+
+const chai = require('chai');
+const expect = chai.expect;
+
+let fizzbuzz = (input) => {   
+    if(input % 3 == 0 || input % 5 == 0){
+        if(input%3 == 0 && input%5 == 0){
+            return 'FizzBuzz';
         }
-        if(i%3 == 0){
-            console.log('Fizz');
+        if(input % 3 == 0){
+            return 'Fizz';
         }
-        if(i%5 == 0){
-            console.log('Buzz');
+        if(input % 5 == 0){
+            return 'Buzz';
         }
     }else{
-        console.log(i);
-    } 
+        return input;
+    }
 }
+
+
+describe('FizzBuzz', () => {
+    it('fizzbuzz(33) should return Fizz', ()=> {
+        expect(fizzbuzz(33)).to.equal('Fizz');
+    });
+});
+
+describe('FizzBuzz', () => {
+    it('fizzbuzz(20) should return Buzz', ()=> {
+        expect(fizzbuzz(20)).to.equal('Buzz');
+    });
+});
+
+describe('FizzBuzz', () => {
+    it('fizzbuzz(0) should return FizzBuzz', ()=> {
+        expect(fizzbuzz(0)).to.equal('FizzBuzz');
+    });
+});
+
+describe('FizzBuzz', () => {
+    it('fizzbuzz(99) should return Fizz', ()=> {
+        expect(fizzbuzz(99)).to.equal('Fizz');
+    });
+});
+
+describe('FizzBuzz', () => {
+    it('fizzbuzz(5) should return Buzz', ()=> {
+        expect(fizzbuzz(5)).to.equal('Buzz');
+    });
+});
